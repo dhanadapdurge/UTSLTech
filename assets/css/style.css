@@ -1,0 +1,93 @@
+/* Custom Utilities and Animations */
+
+/* Status Dot Pulse Animation */
+@keyframes pulse-teal {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 198, 162, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(0, 198, 162, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 198, 162, 0);
+  }
+}
+
+.animate-pulse-teal {
+  animation: pulse-teal 2s infinite;
+}
+
+/* Wavy underline decoration */
+.wavy-underline-teal {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #00C6A2;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+/* Accordion Smooth Transition */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+.accordion-content.expanded {
+  grid-template-rows: 1fr;
+}
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* Process Tracker Timeline Line */
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #E5E2DD;
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 767px) {
+  .timeline-line::before {
+    top: 0;
+    bottom: 0;
+    left: 24px; /* Align with circle center */
+    width: 2px;
+    height: 100%;
+    right: auto;
+    transform: none;
+  }
+}
+
+/* Evolution Timeline Axis */
+.evolution-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #1246F5;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  .evolution-timeline::before {
+    left: 24px;
+    transform: none;
+  }
+}
+
+/* Custom scrollbar for horizontal pills navigation */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
